@@ -7,6 +7,7 @@ Aca dejare todos los comandos GIT para evitar buscarlos en google.
   - [Procedimientos](#procedimientos)
     - [Unir ramas](#unir-ramas)
     - [Unir ramas con conflicto](#unir-ramas-con-conflicto)
+    - [Recorrer ramas](#recorrer-ramas)
 
 ## Branch commands
 
@@ -112,3 +113,13 @@ Simplemente se deja el texto que se quiere dejar y el resto se borra
 ```powershell
 chao
 ```
+
+### Recorrer ramas
+
+volver a un punto especifico
+
+git reset --soft d70db2a
+
+volver al punto anterior
+
+git checkout -- .
