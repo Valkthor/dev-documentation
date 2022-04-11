@@ -3,23 +3,78 @@
 Aca dejare todos los comandos GIT para evitar buscarlos en google.
 
 - [Apuntes GIT](#apuntes-git)
+  - [Get Started](#get-started)
+  - [Alias](#alias)
   - [Branch commands](#branch-commands)
+  - [Stage commands](#stage-commands)
+  - [Commit commands](#commit-commands)
   - [Procedimientos](#procedimientos)
+    - [Cambiar Commit anterior](#cambiar-commit-anterior)
     - [Unir ramas](#unir-ramas)
     - [Unir ramas con conflicto](#unir-ramas-con-conflicto)
     - [Recorrer ramas](#recorrer-ramas)
+
+## Get Started
+
+- Configuracion de GIT:
+
+```powershell
+git config --global user.name "cambiar"
+git config --global user.email "cambiar@gmail.com"
+```
+
+- Crear Alias
+
+```powershell
+git config --global alias.lg "log --oneline --decorate --all --graph"
+git config --global alias.s "status -s -b"
+```
+
+- Ver configuracion creada:
+
+```powershell
+git config --global -e
+```
+
+## Alias
+
+Alias son atajos que se pueden crear en el sistema git en forma local, para eso se usa git config. Ejemplos:
+
+- Crear alias:
+
+```powershell
+git config --global alias.lg "log --oneline --decorate --all --graph"
+```
+
+- Como se usa:
+
+```powershell
+git lg
+```
+
+- Crear alias:
+
+git config --global alias.s "status -s -b"
+
+- Como se usa:
+
+```powershell
+git s 
+```
 
 ## Branch commands
 
 - Ver branches
 
-git branch
+    ```powershell
+    git branch
+    ```
 
 - Se cambia de rama a la que se esta mencionando
 
-```powershell
-git checkout rama-villanos
-```
+    ```powershell
+    git checkout rama-villanos
+    ```
 
 - Crear rama en repositorio remoto.
 
@@ -67,7 +122,56 @@ git diff rama-villanos master
     git merge --no-f rama -m "mensaje"
     ```
 
+## Stage commands
+
+- Quitar archivos del stage
+
+    ```powershell
+    git reset *.xml
+    git reset nombrearchivo
+    ```
+
+## Commit commands
+
+- Modifica el commit anterior (amend significa enmendar)
+
+```powershell
+git commit --amend -m "Actualizacion de mensaje"
+```
+
 ## Procedimientos
+
+### Cambiar Commit anterior
+
+- Se realizan las modificaciones
+- se agregan al stage (git add .)
+- Se agrega al commit anterior, fijarse que el mensaje sea el mismo que el commit anterior:
+
+```powershell
+git commit --amend -m "mensaje commit anterior"
+```
+
+Otra forma (Con ejemplo):
+
+- se agrega la modificacion al stage:
+  
+```powershell
+git add modal.js
+```
+
+- se agrega al commit anterior, no edit sirve para no modificar el texto del commit anterior: 
+
+```powershell
+git commit --ammend --no-edit
+```
+
+ojo, es posible que el push no funcione, se tiene que hacer un:
+
+```powershell
+git push --force origin master
+```
+
+posible problema por branch protegida, para esto se tiene que ir settings-reposotory-branch protected branch
 
 ### Unir ramas
 
@@ -116,10 +220,14 @@ chao
 
 ### Recorrer ramas
 
-volver a un punto especifico
+- volver a un punto especifico
 
+```powershell
 git reset --soft d70db2a
+```
 
-volver al punto anterior
+- volver al punto anterior
 
+```powershell
 git checkout -- .
+```
