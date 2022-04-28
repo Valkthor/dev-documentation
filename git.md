@@ -13,6 +13,7 @@ Aca dejare todos los comandos GIT para evitar buscarlos en google.
     - [Unir ramas](#unir-ramas)
     - [Unir ramas con conflicto](#unir-ramas-con-conflicto)
     - [Recorrer ramas](#recorrer-ramas)
+    - [Descartar cambios](#descartar-cambios)
 
 ## Get Started
 
@@ -231,3 +232,9 @@ git reset --soft d70db2a
 ```powershell
 git checkout -- .
 ```
+
+### Descartar cambios
+
+git checkout .
+
+<https://stackoverflow.com/questions/1146973/how-do-i-revert-all-local-changes-in-git-managed-project-to-previous-state>
