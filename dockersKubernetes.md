@@ -60,9 +60,9 @@ docker build -t billingapp:prod --no-cache --build-arg JAR_FILE=target/*.jar .
 
 - inicializar el contenedor
   
-```powershell
-docker start <nombre o id>
-```
+    ```powershell
+    docker start <nombre o id>
+    ```
 
 - ver el log de la aplicacion
   

@@ -8,11 +8,13 @@ Aca dejare todos los comandos GIT para evitar buscarlos en google.
   - [Branch commands](#branch-commands)
   - [Stage commands](#stage-commands)
   - [Commit commands](#commit-commands)
+  - [Tags commands](#tags-commands)
   - [Procedimientos](#procedimientos)
     - [Cambiar Commit anterior](#cambiar-commit-anterior)
     - [Unir ramas](#unir-ramas)
     - [Unir ramas con conflicto](#unir-ramas-con-conflicto)
     - [Recorrer ramas](#recorrer-ramas)
+    - [Eliminar Commits](#eliminar-commits)
     - [Descartar cambios](#descartar-cambios)
 
 ## Get Started
@@ -140,6 +142,44 @@ git diff rama-villanos master
 git commit --amend -m "Actualizacion de mensaje"
 ```
 
+## Tags commands
+
+- ver tags
+
+    ```powershell
+    git tag
+    ```
+
+- borrar tags
+
+    ```powershell
+    git tag -d superRelease
+    ```
+
+- agregar tag con anotaciones
+
+    ```powershell
+    git tag -a v1.0.0 -m "Version 1.0.0"
+    ```
+
+- agregar tag con anotaciones a otro punto de la rama
+
+    ```powershell
+    git tag -a v0.1.0 345d7de -m "Version alfa"
+    ```
+
+- para ver lo que contiene cierto tag
+
+    ```powershell
+    git show v0.1.0
+    ```
+
+- Enviar Tags al servidor
+
+    ```powershell
+    git push origin --tags
+    ```
+
 ## Procedimientos
 
 ### Cambiar Commit anterior
@@ -219,6 +259,8 @@ Simplemente se deja el texto que se quiere dejar y el resto se borra
 chao
 ```
 
+---
+
 ### Recorrer ramas
 
 - volver a un punto especifico
@@ -231,6 +273,22 @@ git reset --soft d70db2a
 
 ```powershell
 git checkout -- .
+```
+
+---
+
+### Eliminar Commits
+
+Se debe indicar hasta que hash se tiene que resetar:
+
+```powershell
+git reset --hard hash
+```
+
+En el Caso que el cambio alla sido enviado al servidor remoto, se puede forzar:
+
+```powershell
+git push --force
 ```
 
 ### Descartar cambios
